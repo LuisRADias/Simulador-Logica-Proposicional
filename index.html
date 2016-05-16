@@ -1,0 +1,105 @@
+<html lang="pt">
+<head>
+    <title>Exercícios desafio de Lógica</title>
+    <meta charset="iso-8859-1">
+
+    <script src="jq/jquery-1.8.3.js"                type="text/javascript"> </script>
+    <script src="jq/jquery-ui-1.9.2.custom.min.js"  type="text/javascript"> </script>
+
+    <link	href="jq/jquery-ui-1.9.2.custom.css"    rel="stylesheet" type="text/css" media="all"/>
+    <link	href="src/estilo.css"                   rel="stylesheet" type="text/css" media="all"/>
+    
+    <script src="src/main.js"               type="text/javascript"> </script>
+    <script src="src/formula.js"            type="text/javascript"> </script>
+    <script src="src/montarTabela.js"       type="text/javascript"> </script>
+    <script src="src/deducao.js"            type="text/javascript"> </script>
+</head>
+
+<body>
+    <div id="pagina">
+        <header id="cabecalho">
+            <h1>Lógica Proposicional</h1>
+            <h2>Validação e interpretação</h2>
+        </header>
+
+        <br>
+        <center> Insira aqui a fórmula: <input id="formula" size="60%"></input>
+        <button onclick="main()"> Verificar </button> </center>
+        <br>
+        
+        <div id="abas">
+            <ul>
+                <li> <a href="#regras">             Regras              </a> </li>
+                <li> <a href="#configuracoes">      Configurar          </a> </li>
+                <li> <a href="#relatorio">          Relatório           </a> </li>
+                <li> <a href="#tabVerdade">         Tabela Verdade      </a> </li>
+                <li> <a href="#arvoreSemantica">    Árvora Semântica    </a> </li>
+            </ul>
+            <div id="regras">
+                <h2>Regras para contrução da fórmula</h2>
+
+                <h3>Símbolos proposicionais</h3>
+                <ul> 
+                    <li>Cada símbolo proposicional deve ser representado por somente uma letra. </li>
+                    <li>Letras maiúsculas e minúsculas não são deferenciadas. </li>
+                </ul>
+
+                <h3>Símbolos verdade</h3>
+                <ul>
+                    <li>Os valores verdade 'true' e 'false' devem ser representados usando os caracteres '1' e '0' respectivamente.</li>
+                </ul>
+
+                <h3>Conectivos lógicos</h3>
+                <table class="regras">
+                    <tr> <td>Nome</td> <td>Símbolo</td> <td>Como usar</td> </tr>
+                    <tr> <td> Não </td> <td> ¬ </td> <td> ¬, ~ </td> </tr>
+                    <tr> <td> E </td> <td> &#8743 </td> <td> & </td> </tr>
+                    <tr> <td> Ou </td> <td> &#8744 </td> <td> | </td> </tr>
+                    <tr> <td> Implicação </td> <td> &#8594 </td> <td> > </td> </tr>
+                    <tr> <td> Bi-implicação </td> <td> &#8596 </td> <td> = </td> </tr>
+                </table>
+
+                <h3>Símbolos de pontuação</h3>
+                <ul>
+                    <li>Os símbolos de pontuação são '(' e ')'. </li>
+                    <li>Não é permitido o uso de sinais de pontuação vazios.</li>
+                </ul>
+
+                <h3>Regras de formação</h3>
+                <ol>
+                    <li>A fórmula não pode ser vazia. </li>
+                    <li>Todo '(' deve ter um ')' correspondente e vice versa. </li>
+                    <li>Todo o conteúdo dentro dos parenteses é considerado como um simbolo proposicional pelo restante da fórmula. </li>
+                    <li>Não é permitido o uso de parênteses vazios. </li>
+                    <li>Símbolos verdade podem ser considerados como simbolos proposicionais. </li>
+                    <li>O conectivo '¬' (negação) deve ser sucedido por um símbolo proposicional. </li>
+                    <li>Dois símbolos proposicionais devem ser separedos por um conectivo proposicional diferente de '¬'. </li>
+                    <li>Dois conectivo proposicionais diferentes de '¬' devem ser separados por um símbolo proposicional. </li>
+                </ol>
+            </div>
+            <div id="configuracoes">
+                Selecione opções: <br>
+                <input type='checkbox' id='rel' checked='true'> Relatório<br>
+                
+                <p style='font-size:8pt;'> (Símbolos Proposicionais, Conectivos Lógicos, Classificação, Forma normal conjuntiva (FNC) e Forma normal dijuntiva (FND)) </p>
+                
+                <input type='checkbox' id='TV' checked='true'>      Tabela Verdade<br>
+                <input type='checkbox' id='AS'>                     Árvore Semântica*<br>
+                <input type='checkbox' id='TS'>                     Tableaux Semantico*<br>
+                
+                <i><p style='font-size:8pt; color:red;'>*Ainda não implementada</p></i><br><br>
+                
+                <button onclick="main()"> Executar </button>;
+            </div>
+            <div id="relatorio"> </div>
+            <div id="tabVerdade"> </div>
+            <div id="arvoreSemantica"> </div>
+        </div>
+        
+        <footer id="rodape">
+            Luís Ricardo Araujo Dias <br>
+            <i>luis.ric@hotmail.com</i>
+        </footer>
+    </div>
+<body>
+</html>
